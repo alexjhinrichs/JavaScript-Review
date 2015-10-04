@@ -7,7 +7,15 @@ Write a function that takes an array of integers and returns the sum of the inte
 plusOneSum([1, 2, 3, 4]); // 14
 
 */
+var arrayOfIntegers = [1, 2, 3, 4];
 
+function sumOfIntegers(array) {
+	var total = 0;
+ for(var i = 0; i < array.length; i++) {
+ 	total += 1 + array[i];
+ }
+ return total;
+}
 
 
 /*
@@ -17,9 +25,25 @@ Write a function that accepts a multi dimensional array and returns a flattened 
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 
 */
+var multDiArray = [1, 2, [3, [4], 5, 6], 7];
 
 
+function flatten() {
+    var joinArrays = multDiArray.join();
+    var separate = joinArrays.split('');
+    var newArray = [];
+    for(var i = 0; i < separate.length; i++) {
+        if(i % 2 === 0) {
+        	var tostring = separate[i].toString();
+        	var tonumber = Number(tostring);
+            newArray.push(tonumber);
+            
+        }
+    }
+    return newArray;
+}
 
+flatten(multDiArray);
 /*
 
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]

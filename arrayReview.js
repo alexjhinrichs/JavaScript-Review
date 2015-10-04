@@ -128,17 +128,7 @@ function vowelCounter(str) {
 	var count = 0;
 	var notVowels = 0;
 	for(var i = 0; i < separate.length; i++) {
-		if(separate[i] === 'a') {
-			count++;
-		} else if(separate[i] === 'a') {
-			count++;
-		} else if(separate[i] === 'e') {
-			count++;
-		} else if(separate[i] === 'i') {
-			count++;
-		} else if(separate[i] === 'o') {
-			count++;
-		} else if(separate[i] === 'u') {
+		if(separate[i] === 'a' || separate[i] === 'e' || separate[i] === 'i' || separate[i] === 'o' || separate[i] === 'u') {
 			count++;
 		} else {
 		    notVowels++;
