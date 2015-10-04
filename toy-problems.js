@@ -28,8 +28,8 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 var multDiArray = [1, 2, [3, [4], 5, 6], 7];
 
 
-function flatten() {
-    var joinArrays = multDiArray.join();
+function flatten(array) {
+    var joinArrays = array.join();
     var separate = joinArrays.split('');
     var newArray = [];
     for(var i = 0; i < separate.length; i++) {
@@ -49,7 +49,43 @@ flatten(multDiArray);
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
 
 */
+var givenArray = ['a1', 'a2', '...', 'aN', 'b1', 'b2', '...', 'bN', 'c1', 'c2', '...', 'cN'];
 
+
+function sortArray(array) {
+    var As = [];
+    var Bs = [];
+    var Cs = [];
+    var dots = [];
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].charAt(0) === 'a') {
+            As.push(array[i]);
+        }
+    }
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].charAt(0) === 'b') {
+            Bs.push(array[i]);
+        }
+    }
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].charAt(0) === 'c') {
+            Cs.push(array[i]);
+        }
+    }
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].charAt(0) === '.') {
+           dots.push(array[i]);
+           dots.splice(1, 2);
+        }
+    }
+    var order = [];
+    for(i = 0; i < As.length; i++){
+        order.push(As[i], Bs[i], Cs[i], dots[i]);
+    }
+    return order;
+}
+
+sortArray(givenArray);
 
 /*
 
